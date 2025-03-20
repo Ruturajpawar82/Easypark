@@ -1,0 +1,23 @@
+<div style="float: left;">
+    <app-menu></app-menu>
+    </div>
+    <div style="margin-left: 350px; width: 700px;">
+    <table class="table table-bordered mt-4 " style="margin-top: 100px;">
+    <tr class="bg-warning">
+        <th>Owner name</th>
+        <th>Vehicle no</th>
+        <th>Category</th>
+        <th>Charges</th>
+        <th>In Time</th>
+        <th>Bill</th>
+    </tr>
+    <tr *ngFor="let i of vehicle">
+        <th>{{i.ownername}}</th>
+        <th>{{i.vehicleno}}</th>
+        <th>{{i.category}}</th>
+        <th>{{i.charges}}</th>
+        <th>{{i.time}}</th>
+        <th><button class="btn btn-success bg-success" [routerLink]="['/generatebill',i.id]">Generate Bill</button></th>
+    </tr>
+</table>
+</div>

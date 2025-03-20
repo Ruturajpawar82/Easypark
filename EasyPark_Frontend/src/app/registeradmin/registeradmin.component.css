@@ -1,0 +1,17 @@
+.form-container {
+    border: 2px solid #007bff; /* Blue border */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Make the input boxes narrower */
+  .form-control {
+    max-width: 400px; /* Set a maximum width for input fields */
+    margin: 10px auto; /* Center the inputs */
+  }
+
+  /* Center the form */
+  .container {
+    max-width: 500px; /* Limit the width of the form */
+  }

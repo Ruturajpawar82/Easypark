@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Bootstrap Icons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            padding-right: 35px; /* Space for icon */
+        }
+        .icon-style {
+            font-size: 1.2rem;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            pointer-events: none;
+        }
+        .form-group-inline {
+            position: relative;
+        }
+        .btn-custom {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+<div style="float: left;">
+<app-menu></app-menu>
+</div>
+<div class="container mt-6">
+    <form (ngSubmit)="vehiclecategory()">
+        
+        <div  style="border: solid 2px blue; width: 500px; height: 400px;  margin-top: 30px; margin-left: 450px;">
+            <!-- Category Input -->
+             <div style="text-align: center;">
+             <h2 class="text text-danger">Add Category</h2>
+             </div>
+            <div class="form-group">
+                <label for="category" class="form-label">Category</label>
+                <div class="form-group-inline">
+                    <input type="text" class="form-control" id="category" placeholder="Enter Category"  name="category" [(ngModel)]="vehiclecategorys.category" required>
+                    <i class="bi bi-pencil-fill icon-style"></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category" class="form-label">Hours</label>
+                <div class="form-group-inline">
+                    <input type="text" class="form-control" id="category" placeholder="1" required readonly name="hours" [(ngModel)]="vehiclecategorys.hours">
+                    <i class="bi bi-pencil-fill icon-style"></i>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="charges" class="form-label">Charges</label>
+                <div class="form-group-inline">
+                    <input type="number" class="form-control" id="charges" placeholder="Enter Charges" required name="charges"  [(ngModel)]="vehiclecategorys.charges">
+                    <i class="bi bi-cash-coin icon-style"></i>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </div>
+
+            <!-- Add Category Button -->
+            <div class="form-group">
+                <h2 class="text text-primary">{{response}}</h2>
+            </div>
+        </div>
+    </form>
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="btn btn-success" (click)="getalldata()">Get all Category</button>
+    </div>
+    <table class="table table-bordered w-50" align="center" style="margin-top: 20px;">
+
+        <tr class="bg-warning">
+            <th>Category</th>
+            <th>Duration</th>
+            <th>Charges</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <tr *ngFor="let i of getalldatas">
+            <td>{{i.category}}</td>
+            <td>{{i.hours}}</td>
+            <td>{{i.charges}}</td>
+            <td>
+                <button class="btn btn-primary bg-primary"[routerLink]="['/addvehiclecategory',i.id]">Update</button>
+                <button class="btn btn-danger bg-danger " style="margin-left: 15px;">Delete</button>
+            </td>
+
+        </tr>
+
+
+    </table>
+</div>
+
+
+
+</body>
+</html>
+

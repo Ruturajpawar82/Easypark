@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Parking Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .card {
+            width: 50%;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .input-group-text {
+            background-color: #f8f9fa;
+            border-right: none;
+        }
+        .form-control {
+            border-left: none;
+        }
+        .input-group {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .btn {
+            transition: 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+    </style>
+</head>
+<body>
+    <div style="float: left;">
+        <app-menu></app-menu>
+        </div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-center bg-primary text-white">
+                <h4><i class="bi bi-car-front-fill"></i> Vehicle Parking System</h4>
+            </div>
+            <div class="card-body">
+                <form >
+                    <div class="mb-3">
+                        <label class="form-label">Owner Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                            <input type="text" class="form-control"name="ownername" [(ngModel)]="bill.ownername">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Vehicle No</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-car-front"></i></span>
+                            <input type="text" class="form-control" required name="vehicleno" [(ngModel)]="bill.vehicleno">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <div class="input-group">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-car-front"></i></span>
+                                <input type="text" class="form-control" required name="category" [(ngModel)]="bill.category">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Charges</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                            <input type="text" class="form-control" name="charges" [(ngModel)]="bill.charges">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">In Vehicle Time</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-clock-history"></i></span>
+                            <input type="text" class="form-control" name="time" [(ngModel)]="bill.time">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Out Vehicle Time</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                            <input type="text" class="form-control" name="outtime" [(ngModel)]="bill.outvehicletime ">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Hours</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-hourglass-split"></i></span>
+                            <input type="text" class="form-control" name="hours" [(ngModel)]="bill.generatebill.hours">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Total Charges</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-calculator"></i></span>
+                            <input type="text" class="form-control" name="charges" [(ngModel)]="bill.generatebill.total">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success w-100" (click)="pay()" ><i class="bi bi-cash-stack"></i> Pay</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
